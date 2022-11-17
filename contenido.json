@@ -1,0 +1,19 @@
+{"contenido": [
+        { "tag": "saludo",
+            "patrones": ["hola", "un saludo", "hello"],
+            "respuestas": ["Hola, ¿En que puedo ayudarte?", "Un gusto en verte", "Holi mor"]
+        },
+        { "tag": "despedida",
+            "patrones": ["Adios","Hasta la proxima"],
+            "respuestas": ["Chao mor", "Espero haberte ayudado, cuidate", "Adios"]
+        },
+        { "tag": "bancos",
+            "patrones": ["concurrentes","populares"],
+            "respuestas": ["Bancolombia mor", "Davivienda", "Banco de bogota", "BBVA"]
+        },
+        { "tag": "identificacion",
+            "patrones": ["nombre","tu nombre"],
+            "respuestas": ["Morcillo rey o reina o en su defecto sapo"]
+        }
+    ] 
+}
