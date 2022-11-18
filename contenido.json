@@ -1,19 +1,31 @@
 {"contenido": [
         { "tag": "saludo",
             "patrones": ["hola", "un saludo", "hello"],
-            "respuestas": ["Hola, ¿En que puedo ayudarte?", "Un gusto en verte", "Holi mor"]
+            "respuestas": ["Hola, ¿En que puedo ayudarte?", "Un gusto en verte"]
         },
         { "tag": "despedida",
-            "patrones": ["Adios","Hasta la proxima"],
-            "respuestas": ["Chao mor", "Espero haberte ayudado, cuidate", "Adios"]
+            "patrones": ["Adios","Hasta la proxima","Chao"],
+            "respuestas": ["Chao, un placer conocerte", "Espero haberte ayudado, cuidate", "Adios"]
         },
         { "tag": "bancos",
             "patrones": ["concurrentes","populares"],
-            "respuestas": ["Bancolombia mor", "Davivienda", "Banco de bogota", "BBVA"]
+            "respuestas": ["Bancolombia - Banco de bogota - Davivienda"]
         },
         { "tag": "identificacion",
             "patrones": ["nombre","tu nombre"],
-            "respuestas": ["Morcillo rey o reina o en su defecto sapo"]
+            "respuestas": ["Morcillo", "Me puedes llamar morcillo", "Mi nombre es morcillo, un placer"]
+        },
+        { "tag": "moneda",
+            "patrones": ["dolar", "precio"],
+            "respuestas": ["4996"]
+        },
+        { "tag": "horario",
+            "patrones": ["hora", "ingresan", "horario de trabajo"],
+            "respuestas": ["El horario de trabajo es de 8 a 12 de la mañana y de 2 a 4 de la tarde"]
+        },
+        { "tag": "tarjeta",
+            "patrones": ["sacar tarjeta", "adquirir tarjeta"],
+            "respuestas": ["Para adquirir una tarjeta de crédito debes cumplir con los siguientes requisitos:\n             1.Ser mayor de 18 años\n             2.Historial crediticio\n             3.Comprobante de ingresos\n             4.Identificación oficial\n             5.Comprobante de domicilio"]
         }
     ] 
 }

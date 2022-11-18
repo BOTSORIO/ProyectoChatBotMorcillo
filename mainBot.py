@@ -104,7 +104,7 @@ def mainBot():
 
         print("Morcillo: ", random.choice(respuesta))
 
-        if(entrada == 'adios'):
+        if(entrada == 'adios' or entrada == 'hasta la proxima' or entrada == 'chao'):
             flag = False
 
 mainBot()
