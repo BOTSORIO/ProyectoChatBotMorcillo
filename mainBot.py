@@ -1,3 +1,5 @@
+from tkinter import *
+from tkinter import messagebox
 import nltk #Para procesamiento de lenguaje natural
 from nltk.stem.lancaster import LancasterStemmer #Transformar palabras - quitar letras demas
 stemmer = LancasterStemmer()
@@ -10,12 +12,11 @@ import pickle # Guardar el modelo json
 
 nltk.download('punkt') #Validación - Descarga paquete en caso de que moleste al ejecutarlo
 
-with open('contenido.json', encoding='utf-8') as archivo:
+with open('./ProyectoChatBotMorcillo/contenido.json', encoding='utf-8') as archivo:
     datos = json.load(archivo)
 
-
 try:
-    with open('variables.pickle','rb') as archivoPickle:
+    with open('./ProyectoChatBotMorcillo/variables.pickle','rb') as archivoPickle:
         palabras, tags, entrenamiento, salida = pickle.load(archivoPickle)
 except:
 
@@ -59,7 +60,7 @@ except:
 
     entrenamiento = numpy.array(entrenamiento)
     salida = numpy.array(salida)
-    with open('variables.pickle','wb') as archivoPickle:
+    with open('./ProyectoChatBotMorcillo/variables.pickle','wb') as archivoPickle:
         pickle.dump((palabras, tags, entrenamiento, salida), archivoPickle)
 
 tensorflow.compat.v1.reset_default_graph()
@@ -77,16 +78,14 @@ modelo = tflearn.DNN(red)
 #      modelo.load('modelo.tflearn')
 # except:
 modelo.fit(entrenamiento, salida, n_epoch= 1000, batch_size=10, show_metric=True) #Va a ver la información 1000 veces y cuantas entradas
-modelo.save('modelo.tflearn')
+modelo.save('./ProyectoChatBotMorcillo/modelo.tflearn')
 
-flag = True
+def mainBot(texto):   
+    if texto!= '' and texto != ' ':
+        chatLog.insert(END, "Tu: " + texto + '\n\n')
 
-def mainBot():
-    global flag
-    while flag == True:
-        entrada = input("Tu: ")
         cubeta = [0 for _ in range(len(palabras))]
-        entradaProcesada = nltk.word_tokenize(entrada)
+        entradaProcesada = nltk.word_tokenize(texto)
         entradaProcesada = [stemmer.stem(palabra.lower()) for palabra in entradaProcesada]
 
         for palabraIndividual in entradaProcesada:
@@ -102,9 +101,31 @@ def mainBot():
             if tagAux['tag'] == tag:
                 respuesta = tagAux['respuestas']
 
-        print("Morcillo: ", random.choice(respuesta))
+        chatLog.insert(END, "Morcillo: " + random.choice(respuesta) + '\n\n')
 
-        if(entrada == 'adios' or entrada == 'hasta la proxima' or entrada == 'chao'):
-            flag = False
+        if texto == 'Adios' or texto == 'Hasta la proxima' or texto == 'Chao' or texto == 'adios' or texto == 'chao' or texto == 'hasta la proxima':
+            root.destroy()
+    else:
+        messagebox.showerror("Error", "Por favor ingrese un texto valido")
 
-mainBot()
+# Interfaz grafica
+root = Tk()
+root.title("ChatBot")
+root.geometry("400x400")
+root.resizable(width=False, height=False)
+chatLog = Text(root, bd=0, bg="white", height="8", width="50", font="Arial")
+scrollbar = Scrollbar(root, command=chatLog.yview, cursor="heart")  
+chatLog['yscrollcommand'] = scrollbar.set
+chatLog.config(foreground="#442265", font=("Verdana", 12 ))
+chatLog.pack(expand= 1, fill= BOTH)
+frame = Frame(root)
+frame.pack(fill="x")
+Label(frame, text="Comenta lo que necesitas al bot", font="Verdana 10").pack(anchor="center", pady=10)
+texto = StringVar()
+entradaTexto = Entry(frame)
+entradaTexto.config(bd=5, font=("Verdana", 10), width=50, textvariable=texto)
+entradaTexto.pack(padx=20)
+botonEnviar = Button(frame, text="Enviar")
+botonEnviar.config(bd=3, font=("Verdana", 10), command=lambda:mainBot(texto.get()))
+botonEnviar.pack(pady=10)
+root.mainloop()
