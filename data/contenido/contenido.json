@@ -1,0 +1,51 @@
+{"contenido": [
+        { "tag": "saludo",
+            "patrones": ["hola", "un saludo", "hello"],
+            "respuestas": ["Hola, ¿En que puedo ayudarte?", "¡Hola soy tu asistente virtual! Es un gusto poder ayudarte"]
+        },
+        { "tag": "despedida",
+            "patrones": ["Adios","Hasta la proxima","Chao"],
+            "respuestas": ["Chao, un placer conocerte", "Espero haberte ayudado, cuidate", "Adios"]
+        },
+        { "tag": "estado",
+            "patrones": ["como estas", "como te sientes"],
+            "respuestas": ["Muy bien gracias", "Todo super", "Siempre bien"]
+        },
+        { "tag": "identificacion",
+            "patrones": ["nombre","tu nombre","como te llamas"],
+            "respuestas": ["Morcillo", "Me puedes llamar morcillo", "Mi nombre es morcillo, un placer"]
+        },
+        { "tag": "opciones",
+            "patrones": ["opciones"],
+            "respuestas": ["1. Como adquirir una tarjeta de crédito\n             2. Precio del dolar\n             3. Horario de atención\n             4. Bancos populares\n             5. Todo sobre Bancolombia\n             6. Todo sobre Banco de bogota\n             7. Todo sobre Davivienda"]
+        },
+        { "tag": "tarjeta",
+            "patrones": ["1"],
+            "respuestas": ["Debes cumplir con los siguientes requisitos:\n             1. Ser mayor de 18 años\n             2. Historial crediticio\n             3. Comprobante de ingresos\n             4. Identificación oficial\n             5. Comprobante de domicilio"]
+        },
+        { "tag": "moneda",
+            "patrones": ["2"],
+            "respuestas": ["El precio del dolar es de 5.001,41 COP"]
+        },
+        { "tag": "horario",
+            "patrones": ["3"],
+            "respuestas": ["El horario es de 8 am a 12 pm y de 2 pm a 4 pm"]
+        },
+        { "tag": "bancos",
+            "patrones": ["4"],
+            "respuestas": ["Bancolombia - Banco de bogota - Davivienda"]
+        },
+        { "tag": "bancolombia",
+            "patrones": ["5"],
+            "respuestas": ["Bancolombia es una de las empresas del grupo financiero \n             multinacional colombiano Grupo Bancolombia. Su sede \n             principal se encuentra en Medellín y en Bogotá."]
+        },
+        { "tag": "banco de bogota",
+            "patrones": ["6"],
+            "respuestas": ["El Banco de Bogotá es una entidad bancaria en Colombia. \n             Fundado en el 15 de noviembre de 1870, es la primera de su \n             tipo en el país. Es parte del Grupo Aval, el holding financiero                más grande del país y uno de los mayores grupos bancarios                  en Latinoamérica."]
+        },
+        { "tag": "Davivienda",
+            "patrones": ["7"],
+            "respuestas": ["Banco Davivienda es un banco colombiano fundado el 1 de\n             septiembre de 1972. La compañía brinda servicios financieros               a personas, empresas y sectores rurales. Pertenece al Grupo\n             Bolívar​ y es la tercera entidad de su tipo en el país.​"]
+        }
+    ] 
+}
