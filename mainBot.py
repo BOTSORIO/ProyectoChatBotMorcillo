@@ -1,3 +1,18 @@
+'''
+Integrantes:
+- Fernando Murcia
+- Melissa Ortiz
+- Braian Piedrahita
+- Sebastian Quintero
+
+Instalación de librerias:
+- pip install tflearn
+- pip install numpy
+- pip install tensorflow
+- pip install nltk
+
+'''
+
 from tkinter import *
 from tkinter import messagebox
 import nltk #Para procesamiento de lenguaje natural
@@ -10,7 +25,7 @@ import json
 import random
 import pickle # Guardar el modelo json
 
-#nltk.download('punkt') #Validación - Descarga paquete en caso de que moleste al ejecutarlo
+nltk.download('punkt') #Validación - Descarga paquete en caso de que moleste al ejecutarlo
 
 with open('./data/contenido/contenido.json', encoding='utf-8') as archivo:
     datos = json.load(archivo)
@@ -102,6 +117,7 @@ def mainBot(texto):
         chatLog.insert(END, "    ")
         chatLog.image_create(END, image = imgRB)
         chatLog.insert(END, "  "+random.choice(respuesta) + '\n\n')
+
 
         if texto == 'Adios' or texto == 'Hasta la proxima' or texto == 'Chao' or texto == 'adios' or texto == 'chao' or texto == 'hasta la proxima':
             root.destroy()
